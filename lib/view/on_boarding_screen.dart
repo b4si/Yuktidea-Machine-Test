@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:muhammed_basil/controller/country_controller.dart';
 import 'package:muhammed_basil/view/country_select_screen.dart';
 import 'package:muhammed_basil/view/terms_and_conditions_screen.dart';
+import 'package:provider/provider.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -60,72 +62,76 @@ class OnBoardingScreen extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Stack(
-                        alignment: Alignment.topCenter,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    const CountrySelectScreen(),
-                              ));
-                            },
-                            child: Image.asset(
-                              'asset\\student.png',
-                              height: size.height * 0.16,
+                  Consumer<CountryController>(
+                    builder: (context, value, child) => Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Stack(
+                          alignment: Alignment.topCenter,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                value.selectedProfession = 'student';
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      const CountrySelectScreen(),
+                                ));
+                              },
+                              child: Image.asset(
+                                'asset\\student.png',
+                                height: size.height * 0.16,
+                              ),
                             ),
-                          ),
-                          Column(
-                            children: [
-                              SizedBox(
-                                height: size.height * 0.14,
+                            Column(
+                              children: [
+                                SizedBox(
+                                  height: size.height * 0.14,
+                                ),
+                                const Text(
+                                  'Student',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                        Stack(
+                          alignment: Alignment.topCenter,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                value.selectedProfession = 'agent';
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      const CountrySelectScreen(),
+                                ));
+                              },
+                              child: Image.asset(
+                                'asset\\agent.png',
+                                height: size.height * 0.16,
                               ),
-                              const Text(
-                                'Student',
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      Stack(
-                        alignment: Alignment.topCenter,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    const CountrySelectScreen(),
-                              ));
-                            },
-                            child: Image.asset(
-                              'asset\\agent.png',
-                              height: size.height * 0.16,
                             ),
-                          ),
-                          Column(
-                            children: [
-                              SizedBox(
-                                height: size.height * 0.14,
-                              ),
-                              const Text(
-                                'Agent',
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ],
+                            Column(
+                              children: [
+                                SizedBox(
+                                  height: size.height * 0.14,
+                                ),
+                                const Text(
+                                  'Agent',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(
                     height: 10,

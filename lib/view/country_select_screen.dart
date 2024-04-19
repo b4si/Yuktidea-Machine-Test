@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:muhammed_basil/controller/country_controller.dart';
+import 'package:muhammed_basil/view/phone_number_screen.dart';
 import 'package:muhammed_basil/view/widgets/common_back_button.dart';
 import 'package:provider/provider.dart';
 
@@ -8,10 +9,10 @@ class CountrySelectScreen extends StatefulWidget {
   const CountrySelectScreen({Key? key}) : super(key: key);
 
   @override
-  _CountrySelectScreenState createState() => _CountrySelectScreenState();
+  CountrySelectScreenState createState() => CountrySelectScreenState();
 }
 
-class _CountrySelectScreenState extends State<CountrySelectScreen> {
+class CountrySelectScreenState extends State<CountrySelectScreen> {
   String searchQuery = '';
 
   @override
@@ -97,7 +98,15 @@ class _CountrySelectScreenState extends State<CountrySelectScreen> {
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 14),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            countryController.selectedCountry =
+                                country.flag ?? '';
+                            countryController.selectedCountryCode =
+                                country.telCode ?? '';
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => PhoneNumberScreen(),
+                            ));
+                          },
                           child: SizedBox(
                             width: size.width,
                             height: size.height * 0.09,
