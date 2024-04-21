@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:muhammed_basil/controller/country_controller.dart';
 import 'package:muhammed_basil/controller/otp_controller.dart';
 import 'package:muhammed_basil/utils/common_colors.dart';
-import 'package:muhammed_basil/view/desired_country_selection_screen.dart';
 import 'package:muhammed_basil/view/widgets/common_back_button.dart';
 import 'package:muhammed_basil/view/widgets/common_button.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -182,13 +181,6 @@ class OtpScreenState extends State<OtpScreen> {
                 CommonButton(
                     text: 'Verify',
                     function: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const DesiredCountrySelectionScreen(),
-                        ),
-                      );
                       final countryProvider = Provider.of<CountryController>(
                           context,
                           listen: false);
