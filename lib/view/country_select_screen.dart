@@ -58,6 +58,7 @@ class CountrySelectScreenState extends State<CountrySelectScreen> {
                       searchQuery = value;
                     });
                   },
+                  style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     hintText: 'Search',
                     hintStyle: TextStyle(

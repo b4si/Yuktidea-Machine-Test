@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
-import 'package:muhammed_basil/controller/terms_services_provider.dart';
+import 'package:muhammed_basil/controller/terms_services_controller.dart';
 import 'package:provider/provider.dart';
 
 class TermsAndConditionsScreen extends StatelessWidget {

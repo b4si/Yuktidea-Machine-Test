@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:muhammed_basil/controller/country_controller.dart';
 import 'package:muhammed_basil/controller/otp_controller.dart';
 import 'package:muhammed_basil/utils/common_colors.dart';
-import 'package:muhammed_basil/view/otp_screen.dart';
 import 'package:muhammed_basil/view/widgets/common_back_button.dart';
 import 'package:muhammed_basil/view/widgets/common_button.dart';
 import 'package:provider/provider.dart';
