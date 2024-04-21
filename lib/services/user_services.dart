@@ -10,9 +10,10 @@ class UserServices {
       Response response = await Dio().post(
         '$baseUrl/api/logout',
         options: Options(
-          headers: {"Authorization": savedaccessToken},
+          headers: {"Authorization": "Bearer $savedaccessToken"},
         ),
       );
+      log(response.data.toString());
       return response;
     } catch (e) {
       log(e.toString());
@@ -25,9 +26,10 @@ class UserServices {
       Response response = await Dio().post(
         '$baseUrl/api/delete',
         options: Options(
-          headers: {"Authorization": savedaccessToken},
+          headers: {"Authorization": "Bearer $savedaccessToken"},
         ),
       );
+      log(response.data.toString());
       return response;
     } catch (e) {
       log(e.toString());

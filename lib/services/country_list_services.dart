@@ -18,10 +18,13 @@ class CountryListService {
   getDesiredCountry() async {
     try {
       String? savedaccessToken = await SavedDatas().getAccessToken();
+      log('######$savedaccessToken');
       Response response = await Dio().get(
         "$baseUrl/api/select/country",
-        options: Options(headers: {"Authorization": savedaccessToken}),
+        options:
+            Options(headers: {"Authorization": "Bearer $savedaccessToken"}),
       );
+      log('----->>>>');
       return response;
     } catch (e) {
       log(e.toString());

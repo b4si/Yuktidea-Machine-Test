@@ -29,6 +29,7 @@ class CountryController with ChangeNotifier {
         DesiredCountryListModel.fromJson(response.data);
     desiredCountries.clear();
     desiredCountries.addAll(desiredCountryListModel.data!.countries ?? []);
+    notifyListeners();
   }
 
   int selectedIndex = -1;

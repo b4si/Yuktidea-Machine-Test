@@ -99,6 +99,7 @@ class OtpScreenState extends State<OtpScreen> {
                 builder: (context, value, child) => Form(
                   key: _formKey,
                   child: PinCodeTextField(
+                    textStyle: const TextStyle(color: Colors.white),
                     controller: value.otpController,
                     appContext: context,
                     length: 4,

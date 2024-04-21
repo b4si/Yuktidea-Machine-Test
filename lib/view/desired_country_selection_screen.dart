@@ -11,6 +11,8 @@ class DesiredCountrySelectionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provder = Provider.of<CountryController>(context, listen: false);
+    provder.getDesiredCountryList();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: mainColor,
@@ -21,7 +23,9 @@ class DesiredCountrySelectionScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(14.0),
             child: CommonBackButton(
-              ontap: () {},
+              ontap: () {
+                Navigator.pop(context);
+              },
             ),
           ),
           const Row(
